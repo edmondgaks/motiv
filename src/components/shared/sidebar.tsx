@@ -1,8 +1,8 @@
 'use client';
-import { LayoutGridIcon, LogOutIcon, MenuSquareIcon, UserCircleIcon, Car, ShoppingBag, ShoppingCart, CalendarRange, Mails } from 'lucide-react';
+import { LayoutGridIcon, ShoppingBag, ShoppingCart, CalendarRange, Mails } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { SideBarHideIcon, SideBarShowIcon, TReviewsIcon, TrackIcon, AssetsIcon, ServicesIcon, CarIcon } from '../icons';
+import {  AssetsIcon, ServicesIcon, CarIcon } from '../icons';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 

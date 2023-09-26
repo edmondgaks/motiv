@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'MyVital Web App',
-  description: 'A web application to check and ',
+  title: 'Motiv',
+  description: 'A web application for Cars ',
 }
 
 interface Props {
