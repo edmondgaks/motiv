@@ -1,37 +1,52 @@
 'use client';
-import { LayoutGridIcon, LogOutIcon, MenuSquareIcon, UserCircleIcon } from 'lucide-react';
+import { LayoutGridIcon, LogOutIcon, MenuSquareIcon, UserCircleIcon, Car, ShoppingBag, ShoppingCart, CalendarRange, Mails } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { SideBarHideIcon, SideBarShowIcon, TReviewsIcon, TrackIcon } from '../icons';
+import { SideBarHideIcon, SideBarShowIcon, TReviewsIcon, TrackIcon, AssetsIcon, ServicesIcon, CarIcon } from '../icons';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const routes = [
    {
-      icon: <LayoutGridIcon />,
+      icon: <LayoutGridIcon size={20} color="#72767C" />,
       name: 'Dashboard',
       path: '/dashboard',
    },
    {
-      icon: <MenuSquareIcon />,
-      name: 'Menu',
-      path: '/menu',
+      icon: <AssetsIcon />,
+      name: 'Assets',
+      path: '/assets',
    },
    {
-      icon: <TrackIcon />,
-      name: 'Track Orders',
-      path: '/track-orders',
+      icon: <CarIcon />,
+      name: 'Booking',
+      path: '/booking',
    },
    {
-      icon: <TReviewsIcon />,
-      name: 'Tickets & reviews',
-      path: '/tickets-and-reviews',
+      icon: <ShoppingBag size={20} color="#72767C" />,
+      name: 'Sell Cars',
+      path: '/sell-cars',
    },
    {
-      icon: <UserCircleIcon />,
-      name: 'Account',
-      path: '/account',
+      icon: <ShoppingCart size={20} color="#72767C" />,
+      name: 'Buy Cars',
+      path: '/buy-cars',
    },
+   {
+    icon: <ServicesIcon />,
+    name: 'Services',
+    path: '/buy-cars',
+ },
+ {
+  icon: <CalendarRange size={20} color="#72767C" />,
+  name: 'Calendar',
+  path: '/calendar',
+  },
+  {
+    icon: <Mails size={20} color="#72767C" />,
+    name: 'Messages',
+    path: '/messages',
+  },
 ];
 const Sidebar = () => {
    const [path, setPath] = useState('');
@@ -46,24 +61,23 @@ const Sidebar = () => {
    
 
    return (
-
-      <div className="w-[220px] bg-white h-screen flex gap-y-3 flex-col justify-between py-6">
+      <div className="w-[220px] bg-white h-screen flex gap-y-1 flex-col justify-between py-6">
       <div className="flex w-full flex-col gap-5">
-        <div className={"flex gap-3 items-center font-bold justify-center "}>
-          <Image src={"/logo.svg"} width={40} height={40} alt="Logo" />
+        <div className={"flex gap-3 items-center text-xl font-bold justify-center "}>
+          <Image src={"/logo.png"} width={30} height={30} alt="Logo" />
           Motiv
         </div>
-        <div className="flex gap-y-0.5 flex-col w-full">
+        <div className="flex gap-y-1 flex-col w-full">
           {routes.map((route, index) => (
             <Link href={'#'} key={index} className="flex side-link duration-150 cursor-pointer items-center gap-x-3 pr-3">
               <span
                 className={`${
-                  path === route.path ? "bg-primary" : ""
+                  path === route.path ? "" : ""
                 } w-1 duration-300 h-7 rounded-r-lg`}
               ></span>
               <div
                 className={`flex duration-300 items-center justify-start rounded-md w-full px-4 py-2.5 ${
-                  path === route.path ? "bg-primary text-white" : ""
+                  path === route.path ? "" : ""
                 }`}
               >
                 {route.icon}

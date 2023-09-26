@@ -2,7 +2,7 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div className="w-full h-[90vh] bg-[#F5F4F6]">Dashboard</div>
   )
 }
 

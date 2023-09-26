@@ -8,7 +8,7 @@ import Link from 'next/link';
 const NavBar = () => {
 
    return (
-      <div className=" sticky w-full items-center flex p-5 shadow-sm justify-between">
+      <div className="sticky w-full items-center flex p-5 shadow-sm justify-between">
       <h1>Menu</h1>
       <div className="flex text-black/70 items-center gap-x-16">
         <div className="flex items-center gap-x-4">
