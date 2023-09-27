@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className="flex items-center gap-x-4">
           <BellDot strokeWidth={2.5} size={24} color="#7C7C8D" />
           <Image
-            src={`https://ui-avatars.com/api/?name=Manzi+Maxwell&bold=true`}
+            src={`https://ui-avatars.com/api/?name=Edmond+Gakuba&bold=true`}
             className=" rounded-full"
             width={40}
             height={40}

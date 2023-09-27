@@ -1,5 +1,6 @@
 "use client";
-import { Zap } from 'lucide-react'
+import { Lightning, RedoIcon, SettingsIcon } from '@/components/icons';
+import { RefreshCcwDot, Zap } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { PieChart, Pie, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Cell, AreaChart, Area } from 'recharts';
@@ -108,7 +109,7 @@ const Dashboard = () => {
   ]
   
   return (
-    <div className="w-full h-full bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-4 overflow-x-hidden overflow-y-auto">
+    <div className="w-full h-full bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-4 overflow-x-hidden">
       <div className="w-full flex flex-row gap-x-5 items-center">
         <div className="flex flex-col  bg-[#A66FF0] w-[24%] rounded-md relative justify-center p-6 items-center">
           <Image src={"/energy.svg"} width={50} height={50} alt="Logo" />
@@ -246,6 +247,59 @@ const Dashboard = () => {
             <Tooltip />
             <Area type="monotone" dataKey="pv" stroke="#FF764C" fillOpacity={1} fill="url(#colorPv)" />
           </AreaChart>
+        </div>
+      </div>
+      <div className="w-full flex flex-row items-center gap-4">
+        <div className="flex flex-col justify-center gap-2 w-full bg-[#E1DFA4] rounded-md p-6">
+          <div className="flex flex-row items-center justify-start gap-3">
+            <RefreshCcwDot size={20} color="#72767C" strokeWidth={2.75} />
+            <h1 className="text-sm font-semibold">64% Recommended</h1>
+          </div>
+          <Image src={"/car.png"} width={300} height={300} alt="Mini Copper" />
+          <h1 className="text-sm font-semibold">Mini Copper</h1>
+          <div className="w-full flex flex-row items-center justify-between">
+            <div className="flex gap-3 items-center">
+              <RedoIcon />
+              <p className="text-xs font-light text-gray-600">132K</p>
+              <SettingsIcon />
+              <Lightning />
+            </div>
+            <p className="text-sm font-light text-gray-600">$32/h</p>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center gap-2 w-full bg-[#E3ECF1] rounded-md p-6">
+          <div className="flex flex-row items-center justify-start gap-3">
+            <RefreshCcwDot size={20} color="#72767C" strokeWidth={2.75} />
+            <h1 className="text-sm font-semibold">74% Recommended</h1>
+          </div>
+          <Image src={"/suzuki.png"} width={300} height={300} alt="Mini Copper" />
+          <h1 className="text-sm font-semibold">Porshe 911 Carrera</h1>
+          <div className="w-full flex flex-row items-center justify-between">
+            <div className="flex gap-3 items-center">
+              <RedoIcon />
+              <p className="text-xs font-light text-gray-600">130k</p>
+              <SettingsIcon />
+              <Lightning />
+            </div>
+            <p className="text-sm font-light text-gray-600">$28/h</p>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center gap-2 w-full bg-[#F4E3E5] rounded-md p-4">
+          <div className="flex flex-row items-center justify-start gap-3">
+            <RefreshCcwDot size={20} color="#72767C" strokeWidth={2.75} />
+            <h1 className="text-sm font-semibold">84% Recommended</h1>
+          </div>
+          <Image src={"/bmw.png"} width={300} height={300} alt="Mini Copper" />
+          <h1 className="text-sm font-semibold">Porshe 911 Carrera</h1>
+          <div className="w-full flex flex-row items-center justify-between">
+            <div className="flex gap-3 items-center">
+              <RedoIcon />
+              <p className="text-xs font-light text-gray-600">150l</p>
+              <SettingsIcon />
+              <Lightning />
+            </div>
+            <p className="text-sm font-light text-gray-600">$45/h</p>
+          </div>
         </div>
       </div>
     </div>
