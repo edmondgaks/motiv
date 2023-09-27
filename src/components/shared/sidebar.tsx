@@ -67,9 +67,9 @@ const Sidebar = () => {
           <Image src={"/logo.png"} width={30} height={30} alt="Logo" />
           Motiv
         </div>
-        <div className="flex gap-y-1 flex-col w-full">
+        <div className="flex gap-y-1 flex-col w-full text-gray-500 mt-4 text-xs font-[600]">
           {routes.map((route, index) => (
-            <Link href={'#'} key={index} className="flex side-link duration-150 cursor-pointer items-center gap-x-3 pr-3">
+            <Link href={route.path} key={index} className="flex side-link duration-150 cursor-pointer items-center gap-x-3 pr-3">
               <span
                 className={`${
                   path === route.path ? "" : ""
@@ -77,7 +77,7 @@ const Sidebar = () => {
               ></span>
               <div
                 className={`flex duration-300 items-center justify-start rounded-md w-full px-4 py-2.5 ${
-                  path === route.path ? "" : ""
+                  path === route.path ? "bg-[#F3F5F8]" : ""
                 }`}
               >
                 {route.icon}

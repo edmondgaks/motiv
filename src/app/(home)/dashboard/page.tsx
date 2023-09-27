@@ -6,27 +6,26 @@ import React from 'react'
 import { PieChart, Pie, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Cell, AreaChart, Area } from 'recharts';
 
 const Dashboard = () => {
-  const data = [
-    {
-      "name": "Group A",
-      "value": 2400
-    },
-    {
-      "name": "Group B",
-      "value": 4567
-    },
-    {
-      "name": "Group C",
-      "value": 1398
-    },
-  ];
-  const data1 = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-  ];
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+  const energy = [
+    { name: 'Group A', value: 45 },
+    { name: 'Group B', value: 55 },
+  ]
+  const COlORS1 = ['#fff', '#B37EFC'];
+  const range = [
+    { name: 'Group A', value: 50 },
+    { name: 'Group B', value: 50 },
+  ]
+  const COlORS2 = ['#FF7E86', '#F4F5F9'];
+  const fluid = [
+    { name: 'Group A', value: 9 },
+    { name: 'Group B', value: 91 },
+  ]
+  const COlORS3 = ['#A162F7', '#F4F5F9'];
+  const tire = [
+    { name: 'Group A', value: 25 },
+    { name: 'Group B', value: 75 },
+  ]
+  const COlORS4 = ['#F6CC0D', '#F4F5F9'];
   const data2 = [
     {
       "name": "1PM",
@@ -109,14 +108,14 @@ const Dashboard = () => {
   ]
   
   return (
-    <div className="w-full h-full bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-4 overflow-x-hidden">
+    <div className="w-full h-full bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-3 overflow-x-hidden">
       <div className="w-full flex flex-row gap-x-5 items-center">
         <div className="flex flex-col  bg-[#A66FF0] w-[24%] rounded-md relative justify-center p-6 items-center">
           <Image src={"/energy.svg"} width={50} height={50} alt="Logo" />
           <h1 className="font-semibold text-medium text-white">Energy</h1>    
           <PieChart width={400} height={160}>
             <Pie
-            data={data1}
+            data={energy}
             cx={210}
             cy={100}
             startAngle={180}
@@ -124,11 +123,10 @@ const Dashboard = () => {
             innerRadius={60}
             outerRadius={80}
             fill="#8884d8"
-            paddingAngle={5}
             dataKey="value"
           >
-            {data1.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            {energy.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COlORS1[index % COlORS1.length]} />
             ))}
           </Pie>
           </PieChart>
@@ -139,7 +137,7 @@ const Dashboard = () => {
           <h1 className="font-semibold text-medium text-black">Range</h1>  
           <PieChart width={400} height={160}>
             <Pie
-            data={data1}
+            data={range}
             cx={210}
             cy={100}
             startAngle={180}
@@ -147,11 +145,10 @@ const Dashboard = () => {
             innerRadius={60}
             outerRadius={80}
             fill="#8884d8"
-            paddingAngle={5}
             dataKey="value"
           >
-            {data1.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            {range.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COlORS2[index % COlORS2.length]} />
             ))}
           </Pie>
           </PieChart>
@@ -162,7 +159,7 @@ const Dashboard = () => {
           <h1 className="font-semibold text-medium text-black">Break Fluid</h1>  
           <PieChart width={400} height={160}>
             <Pie
-            data={data1}
+            data={fluid}
             cx={210}
             cy={100}
             startAngle={180}
@@ -170,11 +167,10 @@ const Dashboard = () => {
             innerRadius={60}
             outerRadius={80}
             fill="#8884d8"
-            paddingAngle={5}
             dataKey="value"
           >
-            {data1.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            {range.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COlORS3[index % COlORS3.length]} />
             ))}
           </Pie>
           </PieChart>
@@ -185,7 +181,7 @@ const Dashboard = () => {
           <h1 className="font-semibold text-medium text-black">Tire Wear</h1>  
           <PieChart width={400} height={160}>
             <Pie
-            data={data1}
+            data={tire}
             cx={210}
             cy={100}
             startAngle={180}
@@ -193,11 +189,10 @@ const Dashboard = () => {
             innerRadius={60}
             outerRadius={80}
             fill="#8884d8"
-            paddingAngle={5}
             dataKey="value"
           >
-            {data1.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            {tire.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COlORS4[index % COlORS4.length]} />
             ))}
           </Pie>
           </PieChart>
@@ -206,7 +201,7 @@ const Dashboard = () => {
       </div>
       <div className="w-full flex flex-row justify-between gap-4 items-center">
         <div className="flex flex-col bg-white p-4 gap-3 w-[50%] rounded-md">
-          <h1 className="font-semibold text-medium">Miles Statistics</h1>
+          <h1 className="font-semibold text-base">Miles Statistics</h1>
           <div className="flex flex-row w-full justify-between items-center">
             <div className="flex flex-row items-center gap-2">
               <button className="text-xs text-white py-2 px-3 font-medium rounded-full bg-[#2884FF]">Day</button>
@@ -225,7 +220,7 @@ const Dashboard = () => {
           </BarChart>
         </div>
         <div className="flex flex-col bg-white p-4 gap-3 w-[50%] rounded-md">
-          <h1 className="font-semibold text-medium">Car Statistics</h1>
+          <h1 className="font-semibold text-base">Car Statistics</h1>
           <div className="flex flex-row w-full justify-between items-center">
             <h1 className="font-semibold text-sm">20 February 2022</h1>
             <div className="flex flex-row items-center gap-2">
