@@ -1,4 +1,5 @@
 "use client";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { AlertCircle, LineChart, MessageCircle, Wrench } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -55,8 +56,35 @@ const Assets = () => {
             "amt": 2100
           }
       ]
+      
+const reminders = [
+  {
+     id: 1,
+     description: 'Urgent Safety Recall',
+     due: '06/04/2022',
+     overdue: '08/04/2022',
+     notify: 'David Demo',
+     status: 'Completed'
+  },
+  {
+    id: 2,
+    description: 'Urgent Safety Recall',
+    due: '06/04/2022',
+    overdue: '08/04/2022',
+    notify: 'David Demo',
+    status: 'Completed'
+ },
+ {
+  id: 3,
+  description: 'Urgent Safety Recall',
+  due: '06/04/2022',
+  overdue: '08/04/2022',
+  notify: 'David Demo',
+  status: 'Completed'
+},
+];
     return (
-        <div className="w-full h-[90vh] bg-[#F5F4F6] overflow-y-auto flex flex-col gap-y-4 px-8 py-3">
+        <div className="w-full h-[90vh]  bg-[#F5F4F6] overflow-y-auto flex flex-col gap-y-4 px-8 py-3">
           <h1 className="font-bold text-2xl">Assets</h1>
           <div className="w-full flex flex-row gap-4 w-full">
             <div className="w-[30%] h-[80vh] flex flex-col bg-[#438FFE] p-4 gap-4 rounded-md">
@@ -88,7 +116,7 @@ const Assets = () => {
                       <h1 className="font-semibold text-lg">Activity</h1>
                       <p className="text-base text-gray-400 font-medium">View All</p>
                     </div>
-                    <AreaChart width={850} height={300} data={data}
+                    <AreaChart width={750} height={300} data={data}
                       margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                       <defs>
                         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -133,7 +161,7 @@ const Assets = () => {
                       <div className="flex flex-col gap-1 justify-center">
                         <h1 className="font-semibold text-sm">Monday, 13th August 2018</h1>
                         <p className="font-medium text-[#72767C] text-xs">Maintenance Completed, Collect.</p>
-                        <span className="w-[75%] rounded-md bg-[#ECEEF0] text-black text-center">14:07-21/11/2021</span>
+                        <span className="w-full rounded-md bg-[#ECEEF0] text-black text-center">14:07-21/11/2021</span>
                       </div>
                     </div>
                   </div>
@@ -180,11 +208,33 @@ const Assets = () => {
                     <button className="p-2 bg-[#FF6370] text-white rounded-md w-[20%]">See All</button>
                   </div>
                 </div>
-                <div className="w-full bg-white p-4 flex flex-col gap-2 rounded-lg">
+                <div className="w-full bg-white p-4 mb-4 flex flex-col gap-2 rounded-lg">
                   <div className="w-full flex flex-row items-center justify-between">
                     <h1 className="font-semibold text-xl">Reminder</h1>
                     <button className="p-2 text-white rounded-md bg-[#A162F7] font-semibold">+ Add New</button>
                   </div>
+                  <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Description</TableHead>
+                            <TableHead>Due</TableHead>
+                            <TableHead>Overdue</TableHead>
+                            <TableHead>Notify</TableHead>
+                            <TableHead>Status</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                    {reminders.map((reminder) => (
+                    <TableRow key={reminder.id} className="font-semibold">
+                        <TableCell>{reminder.description}</TableCell>
+                        <TableCell>{reminder.due}</TableCell>
+                        <TableCell>{reminder.overdue}</TableCell>
+                        <TableCell>{reminder.notify}</TableCell>
+                        <TableCell>{reminder.status}</TableCell>
+                    </TableRow>
+                    ))}
+                    </TableBody>
+                  </Table>
                 </div>
               </div>
             </div>
