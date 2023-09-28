@@ -85,7 +85,7 @@ const reminders = [
 ];
     return (
         <div className="w-full h-[90vh]  bg-[#F5F4F6] overflow-y-auto flex flex-col gap-y-4 px-8 py-3">
-          <h1 className="font-bold text-2xl">Assets</h1>
+          <h1 className="font-semibold text-2xl">Assets</h1>
           <div className="w-full flex flex-row gap-4 w-full">
             <div className="w-[30%] h-[80vh] flex flex-col bg-[#438FFE] p-4 gap-4 rounded-md">
               <div className="grid grid-cols-3 gap-2">
