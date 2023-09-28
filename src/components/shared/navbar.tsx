@@ -8,7 +8,7 @@ import Link from 'next/link';
 const NavBar = () => {
 
    return (
-      <div className="sticky h-[70px] z-10 w-full items-center flex p-3 shadow-sm justify-between">
+      <div className="sticky h-[10vh] top-0 z-10 w-full items-center flex p-3 shadow-sm justify-between">
         <div className="flex items-center px-3 py-1 w-[25%] rounded-md bg-[#F5F4F6] gap-x-2">
           <SearchIcon size={18} color="#7C7C8D" />
           <input

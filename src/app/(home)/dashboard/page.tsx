@@ -108,7 +108,7 @@ const Dashboard = () => {
   ]
   
   return (
-    <div className="w-full h-full bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-3 overflow-x-hidden">
+    <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-3 overflow-x-hidden">
       <div className="w-full flex flex-row gap-x-5 items-center">
         <div className="flex flex-col  bg-[#A66FF0] w-[24%] rounded-md relative justify-center p-6 items-center">
           <Image src={"/energy.svg"} width={50} height={50} alt="Logo" />
