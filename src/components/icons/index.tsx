@@ -220,3 +220,21 @@ export const TrackIcon = ({ size }: { size?: number }) => (
        </svg>
     </div>
  );
+
+ export const Layer1 = ({ size }: { size?: number }) => (
+   <div style={{ width: size ?? 20 }}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="543" height="177" viewBox="0 0 543 177" fill="none">
+<path d="M287.247 176.256C48.0465 175.456 -3.08682 121.59 1.24651 94.7562C1.24651 67.5895 49.1465 10.9562 240.747 1.75618C432.347 -7.44382 518.58 47.9229 537.747 76.7562C553.913 110.256 526.447 177.056 287.247 176.256Z" fill="url(#paint0_linear_616_617)" stroke="url(#paint1_linear_616_617)"/>
+<defs>
+<linearGradient id="paint0_linear_616_617" x1="263.747" y1="16.7562" x2="256.247" y2="157.256" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#F4F7FE"/>
+</linearGradient>
+<linearGradient id="paint1_linear_616_617" x1="261.5" y1="158.737" x2="266" y2="42.2373" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E5EBFD"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+</defs>
+</svg>
+   </div>
+);
