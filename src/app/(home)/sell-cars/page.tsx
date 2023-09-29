@@ -107,7 +107,74 @@ const SellCars = () => {
                 </Select>
               </div>
             </div>
-            <div className="w-full bg-white p-4 items-center  h-[35vh] rounded-lg flex flex-row">
+            <div className="w-full bg-white p-4 items-center  h-[25vh] rounded-lg flex flex-row">
+              <div className="flex flex-col gap-2 items-center">
+                <h1 className="font-semibold text-2xl self-start">Killan James</h1>
+                <div className="flex flex-row self-start gap-2">
+                  <p className="text-[#FF6464]">$16,605</p>
+                  <span className="text-xs text-[#A4A5A6] self-end">average price</span>
+                </div>
+                <p className="text-sm text-[#72767C] font-semibold">market average is $16,224</p>
+                <button className="rounded-full py-1 px-4 self-start bg-[#FF6370]">
+                  <ArrowRight size={18} color="#fff" />
+                </button>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <PieChart width={210} height={160} className="self-center">
+                  <Pie
+                  data={impression}
+                  cx={120}
+                  cy={100}
+                  startAngle={220}
+                  endAngle={-50}
+                  innerRadius={50}
+                  outerRadius={70}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {impression.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COlORS1[index % COlORS1.length]} />
+                  ))}
+                </Pie>
+                </PieChart>
+                <p className="font-semibold text-2xl -translate-y-20 translate-x-6">45%</p>
+                <p className="text-sm font-semibold text-[#70CF97] -translate-y-14 translate-x-4">Excellent</p>
+                <h1 className="font-medium -translate-y-14 translate-x-4">Impression Share</h1>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <RadialBarChart
+                  width={300} 
+                  height={250} 
+                  innerRadius="30%" 
+                  outerRadius="60%"
+                  data={data2} 
+                  startAngle={0} 
+                  endAngle={360}
+                >
+                  <RadialBar label={{ fill: '#666', position: 'insideStart' }} dataKey='uv' />    
+                  <Tooltip /> 
+                </RadialBarChart>
+                <p className="font-semibold text-2xl -translate-y-36">$811</p>
+              </div>
+              <div className="flex flex-row items-center justify-around w-[50%]">
+                <div className="flex flex-col gap-2 items-center justify-center">
+                  <Image src={"/carOffer.png"} width={50} height={30} alt="Car offer 1" />
+                  <h1 className="text-[#407EF9] font-2xl font-bold">$1,174</h1>
+                  <p className="text-[#808191] font-semibold text-sm">Model Spend</p>
+                </div> 
+                <div className="flex flex-col gap-2 items-center justify-center">
+                  <Image src={"/carOffer1.png"} width={50} height={30} alt="Car offer 1" />
+                  <h1 className="text-[#FF6370] font-2xl font-bold">$1,174</h1>
+                  <p className="text-[#808191] font-semibold text-sm">Model Spend</p>
+                </div>
+                <div className="flex flex-col gap-2 items-center justify-center">
+                  <Image src={"/carOffer2.png"} width={50} height={30} alt="Car offer 1" />
+                  <h1 className="text-[#A162F7] font-2xl font-bold">$811</h1>
+                  <p className="text-[#808191] font-semibold text-sm">Spend per Unit Turned</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-full bg-white p-4 items-center  h-[25vh] rounded-lg flex flex-row">
               <div className="flex flex-col gap-2 items-center">
                 <h1 className="font-semibold text-2xl self-start">Killan James</h1>
                 <div className="flex flex-row self-start gap-2">
