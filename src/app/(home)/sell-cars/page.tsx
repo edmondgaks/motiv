@@ -2,9 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import { Layer1 } from "@/components/icons";
-import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, RadialBar, RadialBarChart, Tooltip, XAxis, YAxis } from "recharts";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-const data2 = [
+import { ArrowLeft, ArrowRight } from "lucide-react";
+const data = [
     {
       "name": "Mon",
       "uv": 10,
@@ -34,6 +35,29 @@ const data2 = [
       "uv": 18,
     }
   ];
+  const data2 = [
+    {
+      "name": "Group A",
+      "uv": 50,
+      "fill": "#F6CC0D"
+    },
+    {
+      "name": "Group B",
+      "uv": 80,
+      "fill": "#FF6370"
+    },
+    {
+      "name": "Group C",
+      "uv": 45,
+      "fill": "#A162F7"
+    },
+    
+  ]
+  const impression = [
+    { name: 'Group A', value: 45 },
+    { name: 'Group B', value: 55 },
+  ]
+  const COlORS1 = ['#70CF97', '#F3F3F3'];
 const SellCars = () => {
     return (
         <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-3 overflow-x-hidden">
@@ -50,7 +74,7 @@ const SellCars = () => {
                 </div>
                 <div className="w-[40%] flex flex-col gap-6 justify-center bg-white p-8 h-[50vh] rounded-lg">
                   <h1 className="font-semibold text-xl">Tracking History</h1>
-                  <BarChart width={500} height={270} data={data2} className="text-gray-100 self-start -translate-x-10">
+                  <BarChart width={500} height={270} data={data} className="text-gray-100 self-start -translate-x-10">
                     {/* <CartesianGrid strokeDasharray="3 3" /> */}
                     <YAxis />
                     <XAxis dataKey="name" />
@@ -83,7 +107,67 @@ const SellCars = () => {
                 </Select>
               </div>
             </div>
-            <div className="w-full bg-white"></div>
+            <div className="w-full bg-white p-4 items-center  h-[35vh] rounded-lg flex flex-row justify-evenly">
+              <div className="flex flex-col gap-2 items-center">
+                <h1 className="font-semibold text-2xl self-start">Killan James</h1>
+                <div className="flex flex-row self-start gap-2">
+                  <p className="text-[#FF6464]">$16,605</p>
+                  <span className="text-xs text-[#A4A5A6] self-end">average price</span>
+                </div>
+                <p className="text-sm text-[#72767C] font-semibold">market average is $16,224</p>
+                <button className="rounded-full py-1 px-4 self-start bg-[#FF6370]">
+                  <ArrowRight size={18} color="#fff" />
+                </button>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <PieChart width={210} height={160} className="self-center">
+                  <Pie
+                  data={impression}
+                  cx={120}
+                  cy={100}
+                  startAngle={220}
+                  endAngle={-50}
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {impression.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COlORS1[index % COlORS1.length]} />
+                  ))}
+                </Pie>
+                </PieChart>
+                <p className="font-semibold text-2xl">45%</p>
+                <h1 className="font-medium">Impression Share</h1>
+              </div>
+              <RadialBarChart
+                width={730} 
+                height={250} 
+                innerRadius="30%" 
+                outerRadius="60%"
+                data={data2} 
+                startAngle={0} 
+                endAngle={360}
+              >
+                <RadialBar label={{ fill: '#666', position: 'insideStart' }} background dataKey='uv' />    
+                <Tooltip />
+              </RadialBarChart>
+              <div className="flex flex-col gap-2 items-center justify-center">
+                <Image src={"/carOffer.png"} width={40} height={20} alt="Car offer 1" />
+                <h1 className="text-[#407EF9] font-xl font-bold">$1,174</h1>
+                <p className="text-[#808191] font-semibold text-sm">Model Spend</p>
+              </div>
+              <div className="flex flex-col gap-2 items-center justify-center">
+                <Image src={"/carOffer.png"} width={40} height={20} alt="Car offer 1" />
+                <h1 className="text-[#407EF9] font-xl font-bold">$1,174</h1>
+                <p className="text-[#808191] font-semibold text-sm">Model Spend</p>
+              </div>
+              <div className="flex flex-col gap-2 items-center justify-center">
+                <Image src={"/carOffer.png"} width={40} height={20} alt="Car offer 1" />
+                <h1 className="text-[#407EF9] font-xl font-bold">$1,174</h1>
+                <p className="text-[#808191] font-semibold text-sm">Model Spend</p>
+              </div>
+            </div>
         </div>
     )
 }
