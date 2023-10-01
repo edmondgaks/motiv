@@ -16,6 +16,9 @@ const CalendarPage = () => {
             <div className="w-full flex flex-row gap-3">
                 <div className="w-[35%] flex flex-col">
                     <h1 className="font-semibold text-2xl">Calendar</h1>
+                    <div className="w-full bg-white p-4">
+            <Calendar onChange={onChange} value={value} />
+            </div>
                 </div>
                 <div className="w-[65%] flex flex-col">
                     <div className="flex flex-row items-center gap-4">
@@ -34,9 +37,7 @@ const CalendarPage = () => {
                     </div>  
                 </div>
             </div>
-            <div className="w-full bg-white p-4">
-            <Calendar onChange={onChange} value={value} />
-            </div>
+            
         </div>
     )
 }
