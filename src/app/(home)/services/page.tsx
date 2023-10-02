@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { Cell, Pie, PieChart } from "recharts";
 
 type ServiceItemProps = {
     label: string;
@@ -21,16 +23,23 @@ const Services: React.FC<ServicesProps> = () => {
       const serviceLabels1 = [
         "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10",
       ];
+      const data = [
+        { name: 'Group A', value: 400 },
+        { name: 'Group B', value: 300 },
+        { name: 'Group C', value: 400 },
+      ];
+      const COLORS = ['#70CF97', '#A162F7', '#FF6370'];
+
     return (
-        <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] flex flex-row px-6 py-3 overflow-x-hidden">
+        <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] gap-6 flex flex-row px-6 py-3 overflow-x-hidden">
             <div className="w-[60%] flex flex-col gap-4">
                 <h1 className="font-semibold text-xl">Service Station</h1>
-                <div className="flex flex-row gap-3 w-full">
+                <div className="flex flex-row gap-4 w-full">
                 {serviceLabels.map((label) => (
                     <ServiceItem key={label} label={label} />
                 ))}
                 </div>
-                <div className="flex flex-row gap-3 w-full">
+                <div className="flex flex-row gap-4 w-full">
                 {serviceLabels1.map((label) => (
                     <ServiceItem key={label} label={label} />
                 ))}
@@ -49,6 +58,54 @@ const Services: React.FC<ServicesProps> = () => {
                         <p className="text-sm font-medium">Current Station</p>
                     </div>
                 </div>
+                <div className="w-full flex flex-row gap-4">
+                    <div className="w-[40%] bg-white rounded-lg flex relative flex-col items-center p-4">
+                        <h1 className="font-semibold text-xl">Your Order</h1>
+                        <PieChart width={220} height={250}>
+                        <Pie
+                            data={data}
+                            innerRadius={70}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            paddingAngle={1}
+                            dataKey="value"
+                            >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                            </Pie>
+                        </PieChart>
+                        <div className="p-8 rounded-full bg-[#F6F6F6] absolute translate-y-24">
+                            <h1 className="text-gray-500 font-semibold text-base">Service</h1>
+                            <p className="text-2xl text-[#A162F7] font-semibold">5, 2<span className="text-sm">h</span></p>
+                        </div>
+                    </div>
+                    <div className="w-[60%] flex flex-col gap-4">
+                        <div className="flex flex-row items-center justify-between p-4 bg-white rounded-lg">
+                            <div className="flex flex-row gap-3 items-center">
+                                <div className="rounded-full p-2 bg-[#70CF97] border border-[#70CF97]"></div>
+                                <p className="text-lg font-semibold text-gray-600">Brake fluid change</p>
+                            </div>
+                            <div className="py-1 px-4 rounded-md bg-[#F6EFFE] text-[#A162F7] text-lg font-semibold">$32</div>
+                        </div>
+                        <div className="flex flex-row items-center justify-between p-4 bg-white rounded-lg">
+                            <div className="flex flex-row gap-3 items-center">
+                                <div className="rounded-full p-2 bg-[#FF6370] border border-[#FF6370]"></div>
+                                <p className="text-lg font-semibold text-gray-600">Diagnotics</p>
+                            </div>
+                            <div className="py-1 px-4 rounded-md bg-[#F6EFFE] text-[#A162F7] text-lg font-semibold">$32</div>
+                        </div>
+                        <div className="flex flex-row items-center justify-between p-4 bg-white rounded-lg">
+                            <div className="flex flex-row gap-3 items-center">
+                                <div className="rounded-full p-2 bg-[#A162F7] border border-[#A162F7]"></div>
+                                <p className="text-lg font-semibold text-gray-600">External Washing</p>
+                            </div>
+                            <div className="py-1 px-4 rounded-md bg-[#F6EFFE] text-[#A162F7] text-lg font-semibold">$10</div>
+                        </div>
+                        <button className="w-full p-3 bg-[#EFEBF1] text-gray-600 font-semibold text-lg rounded-lg border-[#A162F7] border text-center border-dashed">Add Services</button>
+                    </div>
+                </div>
+                <button className="w-full bg-[#A162F7] text-xl p-3 text-center text-white font-semibold rounded-lg">Pay $86</button>
             </div>
             <div className="w-[40%] flex flex-col gap-4  text-[#5F6165]">
                 <h1 className="font-semibold text-xl">Service Required</h1>
