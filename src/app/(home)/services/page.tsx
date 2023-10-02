@@ -1,15 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Cell, Pie, PieChart } from "recharts";
 
 type ServiceItemProps = {
     label: string;
-  };
+    isSelected: boolean;
+    onClick: () => void;
+};
   
 
-const ServiceItem: React.FC<ServiceItemProps> = ({ label }) => (
-    <div className="py-5 px-4 shadow-sm rounded-md bg-white font-medium text-black text-lg">
+const ServiceItem: React.FC<ServiceItemProps> = ({ label, isSelected, onClick }) => (
+    <div onClick={onClick}  className={`py-5 px-4 shadow-sm rounded-md font-medium cursor-pointer text-lg ${isSelected ? "bg-[#FF6370] text-white" : "bg-white text-black"}`}>
       {label}
     </div>
   );
@@ -30,19 +32,31 @@ const Services: React.FC<ServicesProps> = () => {
       ];
       const COLORS = ['#70CF97', '#A162F7', '#FF6370'];
 
-    return (
-        <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] gap-3 flex flex-col px-6 py-3 overflow-x-hidden">
+      const [selectedServices, setSelectedServices] = useState<string[]>([]);
+      const handleServiceClick = (label: string) => {
+        if (selectedServices.includes(label)) {
+          // If the service is already selected, remove it
+          setSelectedServices(selectedServices.filter((item) => item !== label));
+        } else {
+          // If the service is not selected, add it
+          setSelectedServices([...selectedServices, label]);
+        }
+      };
+      return (
+        <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] gap-6 flex flex-col px-6 py-3 overflow-x-hidden">
             <div className="flex flex-row gap-6">
                 <div className="w-[60%] flex flex-col gap-4">
                     <h1 className="font-semibold text-black text-xl">Service Station</h1>
                     <div className="flex flex-row gap-4 w-full">
                     {serviceLabels.map((label) => (
-                        <ServiceItem key={label} label={label} />
+                        <ServiceItem key={label} label={label} isSelected={selectedServices.includes(label)}
+              onClick={() => handleServiceClick(label)}  />
                     ))}
                     </div>
                     <div className="flex flex-row gap-4 w-full">
                     {serviceLabels1.map((label) => (
-                        <ServiceItem key={label} label={label} />
+                        <ServiceItem key={label} label={label} isSelected={selectedServices.includes(label)}
+                        onClick={() => handleServiceClick(label)}  />
                     ))}
                     </div>
                     <div className="w-full flex flex-row justify-center items-center gap-3 text-[#72767C]">
