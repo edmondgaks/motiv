@@ -35,7 +35,7 @@ const routes = [
    {
     icon: <ServicesIcon />,
     name: 'Services',
-    path: '/buy-cars',
+    path: '/services',
  },
  {
   icon: <CalendarRange size={20} color="#72767C" />,

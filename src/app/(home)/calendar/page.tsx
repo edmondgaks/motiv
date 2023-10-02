@@ -3,6 +3,9 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import  Calendar  from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { ScheduleComponent,ViewsDirective,ViewDirective,Day,Week,WorkWeek,Month,Agenda,Inject,Resize,DragAndDrop} from '@syncfusion/ej2-react-schedule';
+import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
+
 
 type ValuePiece = Date | null;
 
@@ -16,9 +19,9 @@ const CalendarPage = () => {
             <div className="w-full flex flex-row gap-3">
                 <div className="w-[35%] flex flex-col">
                     <h1 className="font-semibold text-2xl">Calendar</h1>
-                    <div className="w-full bg-white p-4">
-            <Calendar onChange={onChange} value={value} />
-            </div>
+                    <div className="bg-white p-3">
+                        <Calendar onChange={onChange} value={value} />
+                    </div>
                 </div>
                 <div className="w-[65%] flex flex-col">
                     <div className="flex flex-row items-center gap-4">
