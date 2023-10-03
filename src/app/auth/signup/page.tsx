@@ -1,11 +1,13 @@
 import Image from "next/image"
-
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import React from "react";
 const Signup = () => {
     return (
         <div className="w-full flex flex-col min-h-screen text-[#242731] justify-center items-center">
             <div className="flex flex-col gap-4 justify-center">
                 <h1 className="text-xl font-semibold">Get Started</h1>
-                <p className="text-sm text-gray-400"> Have an account? <span className="text-[#A162F7]">Sign in</span></p>
+                <p className="text-sm text-gray-400"> Have an account? <Link href={"/auth/login"} className="text-[#A162F7]">Sign in</Link></p>
                 <div className="flex flex-row items-center gap-4">
                     <div className="py-4 px-6 rounded-lg flex flex-row items-center gap-2 border border-[#E6E8EC]">
                         <Image src={"/google.png"} alt="Google icon" width={20} height={20} />
