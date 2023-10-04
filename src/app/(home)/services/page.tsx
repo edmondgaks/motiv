@@ -1,7 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Cell, Pie, PieChart } from "recharts";
+import ProgressBar from 'progressbar.js';
+
+
 
 type ServiceItemProps = {
     label: string;
@@ -9,6 +12,45 @@ type ServiceItemProps = {
     onClick: () => void;
 };
   
+type ProgressBar = {
+
+};
+
+const initializeProgressBars = () => {
+  const colors = ['#A162F7', '#70CF97', '#FFA500', '#FF6370']; // Define your colors here
+  const progressBarContainers = document.querySelectorAll('.progress-bar-container');
+
+  progressBarContainers.forEach((container, index) => {
+    const bar = new ProgressBar.Line(container, {
+      strokeWidth: 1,
+      easing: 'easeInOut',
+      duration: 1400,
+      color: colors[index],
+      trailColor: '#eee',
+      trailWidth: 1,
+      svgStyle: { width: '60%', height: '70%' },
+      text: {
+        style: {
+          color: '#999',
+          position: 'absolute',
+          right: '0',
+          top: '30px',
+          padding: 0,
+          margin: 0,
+          transform: null,
+        },
+        autoStyleContainer: false,
+      },
+      from: { color: colors[index] },
+      to: { color: '#ED6A5A' },
+      step: (state, bar) => {
+        bar.value();
+      },    
+    });
+
+    bar.animate(0.7); // Adjust the progress value as needed
+  });
+};
 
 const ServiceItem: React.FC<ServiceItemProps> = ({ label, isSelected, onClick }) => (
     <div onClick={onClick}  className={`py-5 px-4 shadow-sm rounded-md font-medium cursor-pointer text-lg ${isSelected ? "bg-[#FF6370] text-white" : "bg-white text-black"}`}>
@@ -19,6 +61,9 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ label, isSelected, onClick })
   type ServicesProps = {};
 
 const Services: React.FC<ServicesProps> = () => {
+    useEffect(() => {
+    initializeProgressBars();
+    }, []);
     const serviceLabels = [
         "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10",
       ];
@@ -164,6 +209,7 @@ const Services: React.FC<ServicesProps> = () => {
                                     <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
                                     <p className="text-base">Processing: 3 hour</p>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -199,6 +245,8 @@ const Services: React.FC<ServicesProps> = () => {
                         <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
                         <p className="text-base text-gray-600">Don't Replace</p>
                     </div>
+                    {/* Progress bar component */}
+                     <div className="progress-bar-container"></div>
                 </div>
                 <div className="flex flex-col gap-3 justify-center">
                     <Image src={"/service2.png"} alt="service" width={80} height={80} />
@@ -208,6 +256,8 @@ const Services: React.FC<ServicesProps> = () => {
                         <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
                         <p className="text-base text-gray-600">Still Good</p>
                     </div>
+                    {/* Progress bar component */}
+                     <div className="progress-bar-container"></div>
                 </div>
                 <div className="flex flex-col gap-3 justify-center">
                     <Image src={"/service3.png"} alt="service" width={80} height={80} />
@@ -217,6 +267,8 @@ const Services: React.FC<ServicesProps> = () => {
                         <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
                         <p className="text-base text-gray-600">Need Change</p>
                     </div>
+                    {/* Progress bar component */}
+                     <div className="progress-bar-container"></div>
                 </div>
                 <div className="flex flex-col gap-3 justify-center">
                     <Image src={"/service1.png"} alt="service" width={80} height={80} />
@@ -226,6 +278,8 @@ const Services: React.FC<ServicesProps> = () => {
                         <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
                         <p className="text-base text-gray-600">Don't Replace</p>
                     </div>
+                    {/* Progress bar component */}
+                     <div className="progress-bar-container"></div>
                 </div>
             </div>
         </div>
