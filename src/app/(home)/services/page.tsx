@@ -21,7 +21,7 @@ const initializeProgressBars = () => {
   const progressBarContainers = document.querySelectorAll('.progress-bar-container');
 
   progressBarContainers.forEach((container, index) => {
-    const bar = new ProgressBar.Line(container, {
+    const bar = new ProgressBar.Line(container as HTMLElement, {
       strokeWidth: 1,
       easing: 'easeInOut',
       duration: 1400,
