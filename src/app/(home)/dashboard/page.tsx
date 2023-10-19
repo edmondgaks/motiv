@@ -110,10 +110,10 @@ const Dashboard = () => {
   return (
     <div className="w-full h-[90vh] overflow-y-auto bg-[#F5F4F6] flex flex-col gap-y-4 px-6 py-3 overflow-x-hidden">
       <div className="w-full flex flex-row gap-x-5 items-center">
-        <div className="flex flex-col  bg-[#A66FF0] w-[24%] rounded-md relative justify-center p-6 items-center">
+        <div className="flex flex-col bg-[#A66FF0] w-[24%] rounded-md relative justify-center p-6 items-center">
           <Image src={"/energy.svg"} width={50} height={50} alt="Logo" />
           <h1 className="font-semibold text-medium text-white">Energy</h1>    
-          <PieChart width={400} height={160}>
+          <PieChart width={430} height={100}>
             <Pie
             data={energy}
             cx={210}
@@ -130,12 +130,12 @@ const Dashboard = () => {
             ))}
           </Pie>
           </PieChart>
-          <h1 className="font-bold text-xl text-white absolute left-36 top-44">45%</h1>
+          <h1 className="font-semibold -translate-y-4 translate text-2xl text-white">45%</h1>
         </div>
-        <div className="flex flex-col bg-white shadow-md relative gap-4 w-[24%] rounded-md justify-center p-4 items-center">
+        <div className="flex flex-col bg-white shadow-md relative gap-2 w-[24%] rounded-md justify-center p-4 items-center">
           <Image src={"/range.svg"} width={50} height={50} alt="Logo" />
           <h1 className="font-semibold text-medium text-black">Range</h1>  
-          <PieChart width={400} height={160}>
+          <PieChart width={430} height={100}>
             <Pie
             data={range}
             cx={210}
@@ -152,12 +152,12 @@ const Dashboard = () => {
             ))}
           </Pie>
           </PieChart>
-          <h1 className="font-bold text-xl text-black absolute left-36 top-48">151k%</h1>
+          <h1 className="font-bold text-2xl text-black -translate-y-6">151k%</h1>
         </div>
-        <div className="flex flex-col bg-white shadow-md relative gap-4 w-[24%] rounded-md justify-center p-4 items-center">
+        <div className="flex flex-col bg-white shadow-md relative gap-2 w-[24%] rounded-md justify-center p-4 items-center">
           <Image src={"/fluid.svg"} width={50} height={50} alt="Logo" />
           <h1 className="font-semibold text-medium text-black">Break Fluid</h1>  
-          <PieChart width={400} height={160}>
+          <PieChart width={430} height={100}>
             <Pie
             data={fluid}
             cx={210}
@@ -174,12 +174,12 @@ const Dashboard = () => {
             ))}
           </Pie>
           </PieChart>
-          <h1 className="font-bold text-xl text-black absolute left-40 top-48">9%</h1>
+          <h1 className="font-bold text-2xl text-black -translate-y-6">9%</h1>
         </div>
-        <div className="flex flex-col bg-white shadow-md gap-4 w-[24%] relative rounded-md justify-center p-4 items-center">
+        <div className="flex flex-col bg-white shadow-md gap-2 w-[24%] relative rounded-md justify-center p-4 items-center">
           <Image src={"/tire.svg"} width={50} height={50} alt="Logo" />
           <h1 className="font-semibold text-medium text-black">Tire Wear</h1>  
-          <PieChart width={400} height={160}>
+          <PieChart width={430} height={100}>
             <Pie
             data={tire}
             cx={210}
@@ -189,14 +189,13 @@ const Dashboard = () => {
             innerRadius={60}
             outerRadius={80}
             fill="#8884d8"
-            dataKey="value"
-          >
+            dataKey="value">
             {tire.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COlORS4[index % COlORS4.length]} />
             ))}
           </Pie>
           </PieChart>
-          <h1 className="font-bold text-xl text-black absolute left-40 top-48">25%</h1>
+          <h1 className="font-bold text-2xl text-black -translate-y-6">25%</h1>
         </div>
       </div>
       <div className="w-full flex flex-row justify-between gap-4 items-center">
