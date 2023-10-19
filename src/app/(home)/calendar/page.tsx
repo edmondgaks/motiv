@@ -8,6 +8,7 @@ import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 import SchedulerCalendar from 'scheduler-calendar'
 import 'scheduler-calendar/dist/index.css'
 
+// import { Scheduler } from "@aldabil/react-scheduler";
 
 type ValuePiece = Date | null;
 
@@ -63,6 +64,7 @@ const CalendarPage = () => {
                         duration={10}
                         onIntervalChange={() => {}}
                         />
+                        
                 </div>
             </div>
             
