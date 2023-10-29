@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Motiv',
-  description: 'A web application for Cars ',
+  description: 'A web application for Cars',
 }
 
 interface Props {

@@ -7,7 +7,7 @@ const Login: React.FC = () => {
       <div className="flex flex-col gap-6 justify-center">
         <h1 className="text-xl font-semibold">Get Started</h1>
         <p className="text-sm text-gray-400">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
         <Link className="text-[#A162F7]" href={"/auth/signup"}>Sign up</Link>
         </p>
         <div className="flex flex-row items-center gap-4">

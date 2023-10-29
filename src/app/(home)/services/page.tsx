@@ -243,7 +243,7 @@ const Services: React.FC<ServicesProps> = () => {
                     <div className="flex flex-row gap-3">
                         <p className="text-base text-gray-600">Engine</p>
                         <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
-                        <p className="text-base text-gray-600">Don't Replace</p>
+                        <p className="text-base text-gray-600">Dont Replace</p>
                     </div>
                     {/* Progress bar component */}
                      <div className="progress-bar-container"></div>
@@ -276,7 +276,7 @@ const Services: React.FC<ServicesProps> = () => {
                     <div className="flex flex-row gap-3">
                         <p className="text-base text-gray-600">Engine</p>
                         <div className="bg-[#ECECEC] h-4 p-[0.8px]"></div>
-                        <p className="text-base text-gray-600">Don't Replace</p>
+                        <p className="text-base text-gray-600">Dont Replace</p>
                     </div>
                     {/* Progress bar component */}
                      <div className="progress-bar-container"></div>
