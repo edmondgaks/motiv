@@ -5,7 +5,6 @@ import  Calendar  from 'react-calendar';
 import SchedulerCalendar from 'scheduler-calendar';
 import 'scheduler-calendar/dist/index.css';
 
-
 type ValuePiece = Date | null;
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
