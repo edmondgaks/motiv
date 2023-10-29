@@ -1,14 +1,10 @@
 "use client";
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import  Calendar  from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import { ScheduleComponent,ViewsDirective,ViewDirective,Day,Week,WorkWeek,Month,Agenda,Inject,Resize,DragAndDrop} from '@syncfusion/ej2-react-schedule';
-import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
-import SchedulerCalendar from 'scheduler-calendar'
-import 'scheduler-calendar/dist/index.css'
+import SchedulerCalendar from 'scheduler-calendar';
+import 'scheduler-calendar/dist/index.css';
 
-// import { Scheduler } from "@aldabil/react-scheduler";
 
 type ValuePiece = Date | null;
 
