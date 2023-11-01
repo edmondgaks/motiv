@@ -3,7 +3,7 @@ import { Lightning, RedoIcon, SettingsIcon } from '@/components/icons';
 import { Calendar, RefreshCcwDot, Zap } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
-import { PieChart, Pie, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Cell, AreaChart, Area } from 'recharts';
+import { PieChart, Pie, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Cell, AreaChart, Area, ResponsiveContainer } from 'recharts';
 
 const Dashboard = () => {
   const energy = [
@@ -209,14 +209,15 @@ const Dashboard = () => {
             </div>
             <h1 className="font-semibold text-sm">256 Miles</h1>
           </div>
-          <BarChart width={600} height={250} data={data2} className="text-gray-100">
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <Tooltip />
-            
-            <Bar dataKey="pv" fill="#2884FF" />
-            <Bar dataKey="uv" fill="#F4F5F9" />
-          </BarChart>
+          {/* <ResponsiveContainer width={600} height="100%"> */}
+            <BarChart width={550} height={250} data={data2} className="text-gray-100">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <Tooltip />
+              <Bar dataKey="pv" fill="#2884FF" />
+              <Bar dataKey="uv" fill="#F4F5F9" />
+            </BarChart>
+          {/* </ResponsiveContainer> */}
         </div>
         <div className="flex flex-col bg-white p-4 gap-3 w-[50%] rounded-md">
           <h1 className="font-semibold text-base">Car Statistics</h1>
@@ -228,19 +229,21 @@ const Dashboard = () => {
               <button className="text-xs text-black font-medium">Month</button>
             </div>
           </div>
-          <AreaChart width={640} height={250} data={data3}
-            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-            <defs>
-              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#FFEBE0" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#FFFEFD" stopOpacity={0}/>
-              </linearGradient>
-            </defs>
-            <XAxis dataKey="name" />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Tooltip />
-            <Area type="monotone" dataKey="pv" stroke="#FF764C" fillOpacity={1} fill="url(#colorPv)" />
-          </AreaChart>
+          {/* <ResponsiveContainer width={700} height="100%"> */}
+            <AreaChart width={550} height={250} data={data3}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#FFEBE0" stopOpacity={0.8}/>
+                  <stop offset="95%" stopColor="#FFFEFD" stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              <XAxis dataKey="name" />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Tooltip />
+              <Area type="monotone" dataKey="pv" stroke="#FF764C" fillOpacity={1} fill="url(#colorPv)" />
+            </AreaChart>
+          {/* </ResponsiveContainer> */}
         </div>
       </div>
       <div className="w-full flex flex-row items-center gap-4">
